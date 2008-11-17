@@ -6,7 +6,14 @@ body {
 	text-align: left;
 	}
 
+table, tr {
+	vertical-align: top;
+}
 
+tr, td, #institutions table {
+	padding-right: 12px;	
+}
+	
 h1, .description {
 	text-decoration: none;
 	background-color: #cdcdcd;

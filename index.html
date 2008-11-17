@@ -8,7 +8,7 @@
     <meta http-equiv="REFRESH" content="600" />
 
     <title>RWTH RZ Radius - Local Eduroam logins by visiting students</title>
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAzr2EBOXUKnm_jVnk0OJI7xSosDVG8KKPE1-m51RBrvYughuyMxQ-i1QfUnH94QxWIa6N4U6MouMmBA"
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAbfvP67VnFhu1qx8etjAxGRRZfDu85WhYe16XY_ysfbugykDbwBQeeb_EvUO2ycnKwc7KIjcTzHTsHA"
             type="text/javascript"></script>
     <script type="text/javascript" src="countries.js"></script>
     <script type="text/javascript">
@@ -34,7 +34,7 @@
             place.Point.coordinates[0]);
             var j = index;
             var marker = new GMarker(point, {title: place.address + ": " + countries[j][1]});
-            marker.bindInfoWindowHtml("<h2 style=\"font-family:Arial\">" + place.address + ": " + countries[j][1] + "</h2>");
+            marker.bindInfoWindowHtml("<h1 style=\"font-family:Arial; background-color: white; border: 0px;\">" + place.address + ": " + countries[j][1] + "</h2>");
             index++;
             map.addOverlay(marker);
           });
@@ -50,7 +50,20 @@
     <div style="font-family: Arial; font-color: gray;">
     <h1 style="border: 0px; background-color: white; margin-bottom: -15px;">Local Eduroam logins by visiting students</h1>
     <p>(by country of home institution). Click/hover markers to view authentication counts.</p>
+    <table border="0px;">
+    <tr><td>
     <div id="map_canvas" align="center" style="text-align: right; width: 1000px; height: 600px"></div>
+    <div id="generated"></div>
+    <script type="text/javascript">
+    generated_div = document.getElementById("generated");
+    generated_div.innerHTML = '<p style="font-size: 80%"> Generated on ' + generated + '</p>';
+    </script>
+    </td><td id="institutions"></td></tr>
+    <script type="text/javascript">
+    generated_div = document.getElementById("institutions");
+    generated_div.innerHTML = institutions;
+    </script>
+    </table>
     <p style="font-size: 80%">Usually logs of the last 10 days are analyzed, older data is not included in this map.</p>
     </div>
   </body>
