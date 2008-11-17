@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Eduroam Besucher von anderen Institutionen</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAzr2EBOXUKnm_jVnk0OJI7xSosDVG8KKPE1-m51RBrvYughuyMxQ-i1QfUnH94QxWIa6N4U6MouMmBA"
+            type="text/javascript"></script>
+    <script type="text/javascript" src="countries.js"></script>
+    <script type="text/javascript">
+    
+    index=0;
+        
+    function initialize() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map_canvas"));
+        map.enableScrollWheelZoom();
+        map.setCenter(new GLatLng(50.4419, 16.1419), 4);
+
+        var bounds = map.getBounds();
+        var southWest = bounds.getSouthWest();
+        var northEast = bounds.getNorthEast();
+        var lngSpan = northEast.lng() - southWest.lng();
+        var latSpan = northEast.lat() - southWest.lat();
+        var geocoder = new GClientGeocoder();
+        for (i=0; i < (countries.length)-1; i++) {
+          geocoder.getLocations(countries[i][0], function(latlng) {
+            var place = latlng.Placemark[0];
+            var point = new GLatLng(place.Point.coordinates[1],
+            place.Point.coordinates[0]);
+            var j = index;
+            var marker = new GMarker(point, {title: place.address + ": " + countries[j][1]});
+            marker.bindInfoWindowHtml("<h2 style=\"font-family:Arial\">" + place.address + ": " + countries[j][1] + "</h2>");
+            index++;
+            map.addOverlay(marker);
+          });
+        };
+      }
+    }
+
+    </script>
+  
+  </head>
+  <body onload="initialize()" onunload="GUnload()">
+    <div style="font-family: Arial; font-color: gray;">
+    <h1 style="margin-bottom: -15px;">Local Eduroam logins by visiting students</h1>
+    <p>(by country of home institution). Click markers to view authentication counts.</p>
+    </div>
+    <div id="map_canvas" style="width: 1000px; height: 600px"></div>
+  </body>
+</html>
