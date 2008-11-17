@@ -1,0 +1,202 @@
+/* Begin Typography & Colors */
+body {
+	font-family: Arial,  Verdana, Arial, Sans-Serif;
+	background-color: white;
+	color: black;
+	text-align: left;
+	}
+
+
+h1, .description {
+	text-decoration: none;
+	background-color: #cdcdcd;
+	text-align: left;
+	font-size: 1.3em;
+	}
+
+h2 {
+	font-size: 1.0em;
+	padding-left: 15px;
+	/* border-bottom: 1px dotted; */
+	text-decoration: none;
+	background-color: #cdcdcd;
+}
+
+h3 {
+	font-size: 1.1em;
+	padding-left: 20px;
+	/* border-bottom: 1px dashed; */
+	text-decoration: underline;
+}
+
+h1.header, h2.header, h3.header {
+	border-bottom: 0;
+	border: 0;
+	background-color: white;
+	padding-left: 0px;
+}
+
+h1.header { font-size: 2em; }
+
+h1 a, h2, h2 a, h2 a:visited, h3, h3 a, h3 a:visited {
+	color: black;
+	}
+
+h1 a, h2, h2 a, h2 a:hover, h2 a:visited, h3, h3 a, h3 a:hover, h3 a:visited {
+	/* text-decoration: none; */
+	}
+
+pre {
+	font: 1.0em 'Courier New', Courier, Fixed;
+	border: 1px solid #333;
+	color: white;
+	background-color: black;
+	font-weight: bold;
+	padding: 10px;
+	margin: 10px;
+
+}
+
+acronym, abbr, span.caps
+{
+	font-size: 0.9em;
+	letter-spacing: .07em;
+	}
+
+a {
+	color: #06c;
+	text-decoration: underline;
+	}
+h2 a:hover, h3 a:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #003333;
+	text-decoration: underline;
+	}
+
+.content {
+	margin-left: 3px;
+}
+
+/* End Typography & Colors */
+
+
+
+/* Begin Structure */
+body {
+	margin: 2px;
+	padding: 0px;
+	}
+h1 {
+	border: 1px solid;
+}
+/* End Structure */
+
+
+
+/*	Begin Headers */
+h1 {
+	padding: 5px;
+	margin: 0px;
+	}
+
+h2 {
+	padding: 5px;
+	margin: 0px;
+	border: 1px solid;
+	}
+
+
+h3 {
+	margin: 30px 0 0;
+	}
+
+/* End Headers */
+
+
+
+/* Begin Images */
+p img {
+	padding: 0;
+	max-width: 100%;
+	}
+
+/*	Using 'class="alignright"' on an image will (who would've
+	thought?!) align the image to the right. And using 'class="centered',
+	will of course center the image. This is much better than using
+	align="center", being much more futureproof (and valid) */
+
+img.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	}
+
+img.alignright {
+	padding: 4px;
+	margin: 0 0 2px 7px;
+	display: inline;
+	}
+
+img.alignleft {
+	padding: 4px;
+	margin: 0 7px 2px 0;
+	display: inline;
+	}
+
+.alignright {
+	float: right;
+	}
+
+.alignleft {
+	float: left
+	}
+/* End Images */
+
+/* Begin Various Tags & Classes */
+acronym, abbr, span.caps {
+	cursor: help;
+	}
+
+acronym, abbr {
+	border-bottom: 1px dashed #999;
+	}
+
+blockquote {
+	margin: 15px 30px 0 10px;
+	padding-left: 20px;
+	border-left: 5px solid #ddd;
+	}
+
+blockquote cite {
+	margin: 5px 0 0;
+	display: block;
+	}
+
+.center {
+	text-align: center;
+	}
+
+hr {
+
+	height: 1px;
+	border: 1px solid #333;
+}
+
+hr.subchapter {
+	height: 0px;
+	width: 70%;
+	border: 1px solid #333;
+}
+
+a img {
+	border: none;
+	}
+
+ul {
+	list-style-type: square;
+}
+
