@@ -37,7 +37,7 @@
             marker.bindInfoWindowHtml("<h1 style=\"font-family:Arial; background-color: white; border: 0px;\">" + place.address + "</h2><p align=\"left\">" + institutions[j][1] + ":" + institutions[j][2] + "</p>");
             if (clusterers[institutions[j][3]] == null) {                      // if country doesnt already have a clusterer
                     clusterers[institutions[j][3]] = new Clusterer(map);       // create a new one
-                clusterers[institutions[j][3]].SetMaxVisibleMarkers(3);        // 2 per country visible at max
+                clusterers[institutions[j][3]].SetMaxVisibleMarkers(4);        // 2 per country visible at max
                 clusterers[institutions[j][3]].SetMinMarkersPerCluster(2);     // 2 can form a cluster
             }
             (clusterers[institutions[j][3]]).AddMarker(marker, place.address + ", " + institutions[j][1] + ": " + institutions[j][2]);
