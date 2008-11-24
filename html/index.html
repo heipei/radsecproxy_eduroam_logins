@@ -27,14 +27,14 @@
         var lngSpan = northEast.lng() - southWest.lng();
         var latSpan = northEast.lat() - southWest.lat();
         var geocoder = new GClientGeocoder();
-        for (i=0; i < (countries.length)-1; i++) {
-          geocoder.getLocations(countries[i][0], function(latlng) {
+        for (i=0; i < (institutions.length)-1; i++) {
+          geocoder.getLocations(institutions[i][0], function(latlng) {
             var place = latlng.Placemark[0];
             var point = new GLatLng(place.Point.coordinates[1],
             place.Point.coordinates[0]);
             var j = index;
-            var marker = new GMarker(point, {title: place.address + ": " + countries[j][1]});
-            marker.bindInfoWindowHtml("<h1 style=\"font-family:Arial; background-color: white; border: 0px;\">" + place.address + ": " + countries[j][1] + "</h2>");
+            var marker = new GMarker(point, {title: place.address + ": " + institutions[j][1]});
+            marker.bindInfoWindowHtml("<h1 style=\"font-family:Arial; background-color: white; border: 0px;\">" + place.address + "</h2><p align=\"left\">" + institutions[j][1] + ":" + institutions[j][2] + "</p>");
             index++;
             map.addOverlay(marker);
           });
@@ -61,7 +61,7 @@
     </td><td id="institutions"></td></tr>
     <script type="text/javascript">
     generated_div = document.getElementById("institutions");
-    generated_div.innerHTML = institutions;
+    generated_div.innerHTML = institution_breakdown;
     </script>
     </table>
     <p style="font-size: 80%">Usually logs of the last 10 days are analyzed, older data is not included in this map.</p>

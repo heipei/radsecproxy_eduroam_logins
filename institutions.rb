@@ -1,14 +1,31 @@
 #!/usr/bin/env ruby
-#
+
+require File.dirname(__FILE__) + '/lib/geoip_city'
+require 'resolv'
+require 'rubygems'
 
 visitors = STDIN
+db = GeoIPCity::Database.new('GeoLiteCity.dat')
 
-printf "institutions = \""
-printf "<table class=\\\"institutions\\\">"
-printf "<tr><th><b>Institute</b></th><th><b>Visitors</b></th></tr>"
+institutions = "institutions = [ "
+institutions_breakdown = "institution_breakdown = \""
+institutions_breakdown += "<table class=\\\"institutions\\\">"
+institutions_breakdown += "<tr><th><b>Institute</b></th><th><b>Visitors</b></th></tr>"
 
 visitors.each do |line|
 	tuple = line.split(' ')
-	printf "<tr><td>#{tuple[1]}</td><td>#{tuple[0]}</td></tr>"
+	institute = db.look_up(Resolv.getaddress("www." + tuple[1]))
+	city = institute[:city]
+	country = institute[:country_name]
+	country_code = institute[:country_code]
+	institutions += "[\"#{city}, #{country}\", \"#{tuple[-1]}\", \"#{tuple[0]}\"], "
+	institutions_breakdown += "<tr><td>#{tuple[1]}</td><td>#{tuple[0]}</td></tr>"
+
 end
-printf "</table>\";"
+institutions += "[] ];"
+institutions_breakdown += "</table>\";"
+
+puts institutions
+puts institutions_breakdown
+
+puts "generated = \"#{Time.now}\";"

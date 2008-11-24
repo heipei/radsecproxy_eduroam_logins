@@ -1,3 +1,0 @@
-countries = [ ["BE", "10"], ["DE", "1203"], ["FI", "6"], ["NL", "207"], ["PT", "104"], ["SE", "19"], [] ];
-generated = "Mon Nov 17 14:20:02 +0100 2008";
-institutions = "<table class=\"institutions\"><tr><th><b>Institute</b></th><th><b>Visitors</b></th></tr><tr><td>fh-aachen.de</td><td>1174</td></tr><tr><td>tudelft.nl</td><td>207</td></tr><tr><td>alunos.uminho.pt</td><td>53</td></tr><tr><td>fep.up.pt</td><td>51</td></tr><tr><td>gu.se</td><td>19</td></tr><tr><td>uni-paderborn.de</td><td>12</td></tr><tr><td>kuleuven.be</td><td>10</td></tr><tr><td>uni-koeln.de</td><td>8</td></tr><tr><td>tu-bs.de</td><td>8</td></tr><tr><td>tut.fi</td><td>6</td></tr><tr><td>uni-kl.de</td><td>1</td></tr></table>";
