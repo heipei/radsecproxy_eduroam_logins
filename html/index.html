@@ -19,7 +19,7 @@
       if (GBrowserIsCompatible()) {
         var map = new GMap2(document.getElementById("map_canvas"));
         map.enableScrollWheelZoom();
-        map.setCenter(new GLatLng(50.4419, 16.1419), 4);
+        map.setCenter(new GLatLng(50.4419, 11.1419), 5);
 
         var bounds = map.getBounds();
         var southWest = bounds.getSouthWest();
@@ -33,7 +33,7 @@
             var point = new GLatLng(place.Point.coordinates[1],
             place.Point.coordinates[0]);
             var j = index;
-            var marker = new GMarker(point, {title: place.address + ": " + institutions[j][1]});
+            var marker = new GMarker(point, {title: place.address + ": " + institutions[j][2]});
             marker.bindInfoWindowHtml("<h1 style=\"font-family:Arial; background-color: white; border: 0px;\">" + place.address + "</h2><p align=\"left\">" + institutions[j][1] + ":" + institutions[j][2] + "</p>");
             index++;
             map.addOverlay(marker);
