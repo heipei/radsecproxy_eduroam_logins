@@ -12,59 +12,68 @@
             type="text/javascript"></script>
     <script type="text/javascript" src="countries.js"></script>
     <script type="text/javascript">
-    
+
     index=0;
-        
+
     function initialize() {
       if (GBrowserIsCompatible()) {
         var map = new GMap2(document.getElementById("map_canvas"));
-        map.enableScrollWheelZoom();
-        map.setCenter(new GLatLng(50.4419, 11.1419), 5);
+        map.setCenter(new GLatLng(50.4419, 11.1419), 5);        // start over europe
 
-        var bounds = map.getBounds();
-        var southWest = bounds.getSouthWest();
-        var northEast = bounds.getNorthEast();
-        var lngSpan = northEast.lng() - southWest.lng();
-        var latSpan = northEast.lat() - southWest.lat();
-        var geocoder = new GClientGeocoder();
-        for (i=0; i < (institutions.length)-1; i++) {
-          geocoder.getLocations(institutions[i][0], function(latlng) {
+        map.enableScrollWheelZoom();                            // scroll wheel zoom
+        map.addControl(new GLargeMapControl());                 // controls
+        map.addControl(new GScaleControl());                    // controls
+        map.addControl(new GMapTypeControl());                  // controls
+        var clusterers = new Array();                           // array for country-specific clusters
+
+        var geocoder = new GClientGeocoder();                   // object to return search-results
+        for (i=0; i < (institutions.length)-1; i++) {                         // for all the institutions
+          geocoder.getLocations(institutions[i][0], function(latlng) {        // get the location and pass it on
             var place = latlng.Placemark[0];
             var point = new GLatLng(place.Point.coordinates[1],
             place.Point.coordinates[0]);
-            var j = index;
-            var marker = new GMarker(point, {title: place.address + ": " + institutions[j][2]});
+            var j = index;                                      // hack
+            var marker = new GMarker(point, {title: place.address + ": " + institutions[j][2]});        // create new marker
             marker.bindInfoWindowHtml("<h1 style=\"font-family:Arial; background-color: white; border: 0px;\">" + place.address + "</h2><p align=\"left\">" + institutions[j][1] + ":" + institutions[j][2] + "</p>");
+            if (clusterers[institutions[j][3]] == null) {                      // if country doesnt already have a clusterer
+                    clusterers[institutions[j][3]] = new Clusterer(map);       // create a new one
+                clusterers[institutions[j][3]].SetMaxVisibleMarkers(3);        // 2 per country visible at max
+                clusterers[institutions[j][3]].SetMinMarkersPerCluster(2);     // 2 can form a cluster
+            }
+            (clusterers[institutions[j][3]]).AddMarker(marker, place.address + ", " + institutions[j][1] + ": " + institutions[j][2]);
             index++;
-            map.addOverlay(marker);
           });
         };
+           var bounds = map.getBounds();                  // get bounds _after_ adding all the placemarks
+        map.setZoom(map.getBoundsZoomLevel(bounds));      // zoom
+        map.setCenter(bounds.getCenter());                // center
       }
     }
 
     </script>
-  
+    <script src="Clusterer2.jsm" type="text/javascript"></script>
+
   </head>
   <body onload="initialize()" onunload="GUnload()">
     <h1>RWTH RZ Radius 802.1X | (<a href="../radius_log/">Authentication Requests</a> | (<a href="../radius_acc/">Accounting Requests</a>) | (<a href="../radius_log/toptalkers.txt">Toptalkers</a>)</h1>
     <div style="font-family: Arial; font-color: gray;">
     <h1 style="border: 0px; background-color: white; margin-bottom: -15px;">Local Eduroam logins by visiting students</h1>
-    <p>(by country of home institution). Click/hover markers to view authentication counts.</p>
+    <p>Click/hover markers to view authentication counts.<br>
+    Blue icons are clustered, click/zoom in to see individual institutions.</p>
     <table border="0px;">
     <tr><td>
     <div id="map_canvas" align="center" style="text-align: right; width: 1000px; height: 600px"></div>
-    <div id="generated"></div>
+    <div><p id="generated"></p><p style="font-size: 80%">Usually logs of the last 10 days are analyzed, older data is not included in this map.</p></div>
     <script type="text/javascript">
-    generated_div = document.getElementById("generated");
-    generated_div.innerHTML = '<p style="font-size: 80%"> Generated on ' + generated + '</p>';
+            generated_div = document.getElementById("generated");
+            generated_div.innerHTML = '<p style="font-size: 80%"> Generated on ' + generated + '</p>';
     </script>
     </td><td id="institutions"></td></tr>
     <script type="text/javascript">
-    generated_div = document.getElementById("institutions");
-    generated_div.innerHTML = institution_breakdown;
+            generated_div = document.getElementById("institutions");
+            generated_div.innerHTML = institution_breakdown;
     </script>
     </table>
-    <p style="font-size: 80%">Usually logs of the last 10 days are analyzed, older data is not included in this map.</p>
     </div>
   </body>
 </html>
