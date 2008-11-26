@@ -44,7 +44,7 @@
             index++;
           });
         };
-           var bounds = map.getBounds();                  // get bounds _after_ adding all the placemarks
+        var bounds = map.getBounds();                  // get bounds _after_ adding all the placemarks
         map.setZoom(map.getBoundsZoomLevel(bounds));      // zoom
         map.setCenter(bounds.getCenter());                // center
       }
