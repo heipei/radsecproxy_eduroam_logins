@@ -17,7 +17,11 @@ visitors.each do |line|
 	begin
 		institute = db.look_up(Resolv.getaddress("www." + tuple[1]))
 	rescue
-		institute = db.look_up(Resolv.getaddress(tuple[1]))
+		begin
+			institute = db.look_up(Resolv.getaddress(tuple[1]))
+		rescue
+			next
+		end
 	end
 	city = institute[:city]
 	country = institute[:country_name]
