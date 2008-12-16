@@ -27,7 +27,7 @@
         var clusterers = new Array();                           // array for country-specific clusters
 
         var geocoder = new GClientGeocoder();                   // object to return search-results
-        for (i=0; i < (institutions.length)-1; i++) {                         // for all the institutions
+        for (i=0; i < (institutions.length); i++) {                         // for all the institutions
           geocoder.getLocations(institutions[i][0], function(latlng) {        // get the location and pass it on
             var place = latlng.Placemark[0];
             var point = new GLatLng(place.Point.coordinates[1],

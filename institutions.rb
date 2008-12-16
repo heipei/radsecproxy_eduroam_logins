@@ -23,13 +23,14 @@ visitors.each do |line|
 			next
 		end
 	end
-	city = institute[:city]
+	city = institute[:city].scan(/[a-z,A-Z,\,, ]+/).join('')	# filter out non-ascii-chars, js or google may choke on these
 	country = institute[:country_name]
 	country_code = institute[:country_code]
 	institutions += "[\"#{city}, #{country}\", \"#{tuple[-1]}\", \"#{tuple[0]}\", \"#{country_code}\"], "
 	institutions_breakdown += "<tr><td>#{tuple[1]}</td><td>#{tuple[0]}</td></tr>"
 
 end
+
 institutions += "[] ];"
 institutions_breakdown += "</table>\";"
 
