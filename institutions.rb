@@ -27,7 +27,7 @@ visitors.each do |line|
 	country = institute[:country_name]
 	country_code = institute[:country_code]
 	institutions += "[\"#{city}, #{country}\", \"#{tuple[-1]}\", \"#{tuple[0]}\", \"#{country_code}\"], "
-	institutions_breakdown += "<tr><td>#{tuple[1]}</td><td>#{tuple[0]}</td></tr>"
+	institutions_breakdown += "<tr><td><a href=\\\"http\:\/\/www.#{tuple[1]}\\\">#{tuple[1]}</a></td><td>#{tuple[0]}</td></tr>"
 
 end
 
