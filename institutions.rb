@@ -26,7 +26,9 @@ visitors.each do |line|
 	city = institute[:city].scan(/[a-z,A-Z,\,, ]+/).join('')	# filter out non-ascii-chars, js or google may choke on these
 	country = institute[:country_name]
 	country_code = institute[:country_code]
-	institutions += "[\"#{city}, #{country}\", \"#{tuple[-1]}\", \"#{tuple[0]}\", \"#{country_code}\"], "
+	latitude = institute[:latitude]
+	longitude = institute[:longitude]
+	institutions += "[\"#{city}, #{country}\", \"#{tuple[-1]}\", \"#{tuple[0]}\", \"#{country_code}\", \"#{latitude}\", \"#{longitude}\"], "
 	institutions_breakdown += "<tr><td><img src=\\\"flags/#{country_code.downcase}.png\\\" alt=\\\"\\\"></td><td><a href=\\\"http\://www.#{tuple[1]}\\\">#{tuple[1]}</a></td><td>#{tuple[0]}</td></tr>"
 
 end
