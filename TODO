@@ -1,11 +1,11 @@
 What doesn't work
 -----------------
-- Controls for the map (the code is there)
 - Some placemarks are undeterministic (kuleuven.be for example)
 - Clustering still sucks
+- Dynamic zoom (with bounds.extend) doesn't work (JavaScript variable visibility problem I suppose)
 
 Still todo before public release
 --------------------------------
 - Write documentation
 - Make some stuff easy to configure (map-dimensions, templates for the html, logfiles, etc)
-- Get-script for geo-ip-database
+- Get-script for geo-ip-database [DONE]

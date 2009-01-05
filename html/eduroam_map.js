@@ -9,13 +9,13 @@ function initialize() {
 		map.addControl(new GLargeMapControl());					// controls
 		map.addControl(new GScaleControl());					// controls
 		map.addControl(new GMapTypeControl());					// controls
-		//bounds = new GLatLngBounds();						// get bounds _after_ adding all the placemarks
+		var bounds = new GLatLngBounds();					// bounds-object for dynamic zoom/center
 		var clusterers = new Array();						// array for country-specific clusters
 
-		for (i=0; i < (institutions.length); i++) {				// for all the institutions
+		for (var i=0; i < (institutions.length); i++) {				// for all the institutions
 				var j = index;						// stupid, but javascript wants it that way
 				var point = new GLatLng(institutions[j][4], institutions[j][5]);
-				//bounds.extend(point);
+				bounds.extend(point);					// extend the maps bounds with new marker
 				var marker = new GMarker(point, {title: institutions[j][0] + ": " + institutions[j][2]});		// create new marker
 				marker.bindInfoWindowHtml("<h1 style=\"font-family:Arial; background-color: white; border: 0px;\">" 
 				+ institutions[j][0] + "</h2><p align=\"left\">" + institutions[j][1] + ":" + institutions[j][2] + "</p>");

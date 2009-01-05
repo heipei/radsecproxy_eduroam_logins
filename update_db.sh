@@ -6,5 +6,5 @@
 
 # More information: http://www.maxmind.com/app/geolitecity
 
-wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
+wget -nv http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
 gunzip -f GeoLiteCity.dat.gz
