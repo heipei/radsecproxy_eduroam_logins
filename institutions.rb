@@ -23,7 +23,9 @@ visitors.each do |line|
 			next
 		end
 	end
-	city = institute[:city].scan(/[a-z,A-Z,\,, ]+/).join('')	# filter out non-ascii-chars, js or google may choke on these
+	if(institute[:city]) then
+		city = institute[:city].scan(/[a-z,A-Z,\,, ]+/).join('')	# filter out non-ascii-chars, js or google may choke on these
+	end
 	country = institute[:country_name]
 	country_code = institute[:country_code]
 	latitude = institute[:latitude]
