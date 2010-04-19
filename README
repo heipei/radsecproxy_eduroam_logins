@@ -1,0 +1,49 @@
+README for Google Eduroam Logins
+********************************
+
+Description
+===========
+
+This is a simple project meant to extract logins from radsecproxy-logs in order
+to display login-counts from different institutions on a map.
+
+Installation
+============
+
+In order to use this you'll need the following:
+- ruby installed
+- geoip ruby gem installed
+- geopiplookup libraries installed system-wide (optional)
+- a valid Google Maps API key
+
+Usage
+=====
+
+Start by downloaded an up-to-date version of GeoLiteCity.dat (using the
+update_db.sh script). Or use the commercial version if you got that ;)
+
+Our simple setup can be inferred from looking at the get_and_combine.sh script.
+Of course you'll have to adapt it to your local setup. The institutions.txt
+(which is the intermediate file) has to be in the following form:
+
+rwth-aachen.de
+fh-aachen.de
+...
+
+Which is what line 3 and 4 take care of. Afterwards its sorted, downcased and
+counted, so institutions.rb can process it and output countries.js. The whole
+html subtree can then be copied to a web-accessible host. Don't forget to adapt
+index.html to your needs.
+
+Development
+===========
+
+Outstanding bugs and problems are documented in the TODO. Patches to general
+problems (i.e. not special to your local setup) are gladly accepted at
+gilger@rz.rwth-aachen.de. If possible use git to manage the source and generate
+commits as patches (see git format-patch).
+
+License
+=======
+
+Licensed as open source under the GPLv2. Have fun ;)

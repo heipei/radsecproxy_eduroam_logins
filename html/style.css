@@ -1,0 +1,79 @@
+body {
+	font-family: Arial,  Verdana, Arial, Sans-Serif;
+	background-color: white;
+	color: black;
+	text-align: left;
+	margin: 2px;
+	padding: 0px;
+}
+
+table, tr {
+	vertical-align: top;
+	border: 0px;
+}
+
+tr, td, #institutions table {
+	padding-right: 12px;	
+	vertical-align: top;
+}
+	
+h1, .description {
+	text-decoration: none;
+	background-color: #cdcdcd;
+	text-align: left;
+	font-size: 1.3em;
+	border: 1px solid;
+	padding: 5px;
+	margin: 0px;
+}
+
+h2 {
+	font-size: 1.0em;
+	padding-left: 15px;
+	text-decoration: none;
+	background-color: #cdcdcd;
+	padding: 5px;
+	margin: 0px;
+	border: 1px solid;
+}
+
+h3 {
+	font-size: 1.1em;
+	padding-left: 20px;
+	text-decoration: underline;
+	margin: 30px 0 0;
+}
+
+h1 a, h2, h2 a, h2 a:visited, h3, h3 a, h3 a:visited {
+	color: black;
+}
+
+a {
+	color: #06c;
+	text-decoration: underline;
+}
+h2 a:hover, h3 a:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #003333;
+	text-decoration: underline;
+}
+
+p {
+	margin: 10px;
+	font-size: 80%;
+}
+
+#map_canvas {
+	text-align: right; 
+	width: 950px; 
+	height: 600px;
+	border: 1px solid black;
+}
+
+#institutions {
+	border: 0px solid black;
+}
