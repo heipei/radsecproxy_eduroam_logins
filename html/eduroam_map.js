@@ -23,7 +23,7 @@ function initialize() {
 				if (clusterers[institutions[j][3]] == null) {				// if country doesnt already have a clusterer
 					clusterers[institutions[j][3]] = new Clusterer(map);		// create a new one
 					clusterers[institutions[j][3]].SetMaxVisibleMarkers(5);		// 5 placemarks per country visible at max
-					clusterers[institutions[j][3]].SetMinMarkersPerCluster(2);	// 2 placemarks at least are needed to form a cluster
+					clusterers[institutions[j][3]].SetMinMarkersPerCluster(3);	// 2 placemarks at least are needed to form a cluster
 				}
 				(clusterers[institutions[j][3]]).AddMarker(marker, institutions[j][0] + ", " + institutions[j][1] + ": " + institutions[j][2]);
 				index++;
