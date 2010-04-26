@@ -15,7 +15,7 @@ end
 puts <<EOF
     select username from free#{(Date.today-1).strftime("%Y%m%d")} where HomeInstitution not like 'rwth-aachen.de'
       group by username order by substring_index(username,'@',-1)) as a)
-as b where institution like '%.%' and institution not like '%3gpp%' group by institution order by substring_index(institution,'.',-1) ASC;
+as b where institution like '%.%' and institution not like '%3gpp%' group by institution order by substring_index(institution,'.',-1) ASC, users DESC, institution ASC;
 EOF
 
 

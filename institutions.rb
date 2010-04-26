@@ -57,4 +57,4 @@ institutions_breakdown.each do |i|
 end
 puts ""
 
-puts "generated = \"#{Time.now}\";"
+puts "generated = \"#{Time.now.strftime("%Y-%m-%d %H:%M:%S")}\";"
