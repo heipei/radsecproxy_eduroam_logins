@@ -19,8 +19,8 @@ In order to use this you'll need the following:
 Usage
 =====
 
-Start by downloaded an up-to-date version of GeoLiteCity.dat (using the
-update_db.sh script). Or use the commercial version if you got that ;)
+Start by downloading an up-to-date version of GeoLiteCity.dat (using the
+update_db.sh script). Or use the commercial version if you've got that ;)
 
 generate.sh then gets the relevant information from the MySQL server (make sure
 that .passwd with your SQL-pw exists) and returns it in two columns:
@@ -36,7 +36,7 @@ Development
 
 Outstanding bugs and problems are documented in the TODO. Patches to general
 problems (i.e. not special to your local setup) are gladly accepted at
-gilger@rz.rwth-aachen.de. If possible use git to manage the source and generate
+heipei@hackvalue.de. If possible use git to manage the source and generate
 commits as patches (see git format-patch).
 
 License
